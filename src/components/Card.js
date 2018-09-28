@@ -1,29 +1,16 @@
-import React, {Component} from 'react';
-import classnames from 'classnames';
+import React from "react";
 
-export default class Card extends Component {
-  constructor(props) {
-    super(props);
-    this.handleClick = this.handleClick.bind(this);
-  }
+const Card = () => (
+  <div className="card">
+    <div className="card-body">
+      <p className="card-text">
+        Aliquip dolore commodo nostrud minim. Cillum do enim non ullamco. Commodo magna eu ex mollit
+        sunt amet fugiat. In irure eu enim id ea sit nostrud incididunt ad adipisicing.Aliquip
+        dolore commodo nostrud minim. Cillum do enim non ullamco. Commodo magna eu ex mollit sunt
+        amet fugiat. In irure eu enim id ea sit nostrud incididunt ad adipisicing.
+      </p>
+    </div>
+  </div>
+);
 
-  handleClick(e) {
-    if (!this.props.flipped) {
-      this.props.checkMatch(this.props.value, this.props.id);
-    }
-  }
-
-  render() {
-    var classes = classnames(
-      'Card',
-      {'Card--flipped': this.props.flipped},
-      {'Card--matched': this.props.matched}
-    );
-    var cardValue = this.props.flipped ? this.props.value : '';
-    return (
-      <div className={classes} onClick={this.handleClick}>
-        {cardValue}
-      </div>
-    );
-  }
-}
+export default Card;
