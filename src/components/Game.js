@@ -1,26 +1,32 @@
 import React, {Component} from 'react';
-import Card from './components/Card';
+import Card from './Card';
 
 
+const Game = () => ( 
 
-
-<div class="row">
-  <div class="col-sm-3">col-sm</div>
-  <div class="col-sm-3">col-sm</div>
-  <div class="col-sm-3">col-sm</div>
-<div class="col-sm-3">col-sm</div>
+    <div className = "container">
+<div className="row">
+  <div className="col-sm-3"><Card /></div>
+  <div className="col-sm-3"><Card /></div>
+  <div className="col-sm-3"><Card /></div>
+<div className="col-sm-3"><Card /></div>
 </div>
 
-<div class="row">
-  <div class="col-sm-3">col-sm</div>
-  <div class="col-sm-3">col-sm</div>
-  <div class="col-sm-3">col-sm</div>
-<div class="col-sm-3">col-sm</div>
+<div className="row">
+  <div className="col-sm-3"><Card /></div>
+  <div className="col-sm-3"><Card /></div>
+  <div className="col-sm-3"><Card /></div>
+<div className="col-sm-3"><Card /></div>
 </div>
 
-<div class="row">
-  <div class="col-sm-3">col-sm</div>
-  <div class="col-sm-3">col-sm</div>
-  <div class="col-sm-3">col-sm</div>
-<div class="col-sm-3">col-sm</div>
+<div className="row">
+  <div className="col-sm-3"><Card /></div>
+  <div className="col-sm-3"><Card /></div>
+  <div className="col-sm-3"><Card /></div>
+<div className="col-sm-3"><Card /></div>
 </div>
+    </div>
+    
+);
+    
+export default Game;

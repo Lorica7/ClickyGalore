@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 
-
-import React, {Component} from 'react';
-import Game from './components/Game';
+import Game from './Game';
+import Welcome from './Welcome';
 
 export default class App extends Component {
   render() {
