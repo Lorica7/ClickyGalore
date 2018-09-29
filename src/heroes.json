@@ -3,56 +3,56 @@
     {
         "id": 1,
         "name": "Myrrh",
-        "image": "../src/assets/Myrrh.png",
+        "image": "../public/images/Myrrh.png",
         "clicked": false
     },
     
     {
         "id": 2,
-        "name": "Lyn",
-        "image": "./assets/BraveLyn.png",
+        "name": "CROWD",
+        "image": "./images/crowd.jpg",
         "clicked": false
     },
     
     {
         "id": 3,
         "name": "Celica",
-        "image": "./assets/Celica.png",
+        "image": "../public/images/Celica.png",
         "clicked": false
     },
     
     {
         "id": 4,
         "name": "Ike",
-        "image": "./assets/Ike.png",
+        "image": "../public/images/Ike.png",
         "clicked": false
     },
     
     {
         "id": 5,
         "name": "Azura",
-        "image": "./assets/SpAzura.png",
+        "image": "../public/images/SpAzura.png",
         "clicked": false
     },
     
     {
         "id": 6,
         "name": "Quan",
-        "image": "./assets/Quan.png",
+        "image": "../public/images/Quan.png",
         "clicked": false
     },
     
     {
         "id": 7,
         "name": "Ninian",
-        "image": "./assets/Ninian.png",
+        "image": "../public/images/Ninian.png",
         "clicked": false
     },
     
     {
         "id": 8,
         "name": "Linus",
-        "image": "./assets/Linus.png",
+        "image": "../public/images/Linus.png",
         "clicked": false
     },
     
@@ -60,28 +60,28 @@
     {
         "id": 9,
         "name": "Robin",
-        "image": "./assets/FellRobin.png",
+        "image": "../public/images/FellRobin.png",
         "clicked": false
     },
     
     {
         "id": 10,
         "name": "Fae",
-        "image": "./assets/Fae.png",
+        "image": "../public/images/Fae.png",
         "clicked": false
     },
     
     {
         "id": 11,
         "name": "Hinoka",
-        "image": "./assets/Hinoka1.png",
+        "image": "../public/images/Hinoka1.png",
         "clicked": false
     },
     
     {
         "id": 12,
         "name": "Hector",
-        "image": ".assets/Hector.png",
+        "image": "../public/images/Hector.png",
         "clicked": false
     }
        
