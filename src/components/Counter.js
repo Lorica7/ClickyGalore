@@ -5,13 +5,18 @@ class Counter extends React.Component {
  
   state = {
     count: 0
+    
   };
-  handleIncrement = () => {
-  
-    this.setState({ count: this.state.count + 1 });
 
-    // *****also need to update the state of the img array. if image is clicked, add a class to it
+  handleIncrement = () => {
+    this.setState({ count: this.state.count + 1 }); 
   };
+
+  handleReset = () => {
+    this.setState({ count: 0});
+  }
+
+
   render() {
     return (
       <div className="card text-center">
@@ -20,7 +25,6 @@ class Counter extends React.Component {
         </div>
         <div className="card-body">
           <p className="card-text">Click Count: {this.state.count}</p>
-          {/* <img src= {this.props.source} onClick={this.handleIncrement}></img> */}
         </div>
       </div>
     );
