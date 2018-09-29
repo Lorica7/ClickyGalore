@@ -1,0 +1,22 @@
+.card {
+    background: #ccc;
+    border-radius: 2px;
+    min-height: 200px;
+    overflow: hidden;
+    min-width: 200px;
+
+}
+
+
+.card > .img-container {
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+    
+}
+
+.card > .img-container img {
+   
+    width: 100%;
+    min-height: 200px;
+}

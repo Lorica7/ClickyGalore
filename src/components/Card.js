@@ -1,15 +1,13 @@
 import React from "react";
+import "./Card.css"
 
-const Card = () => (
+const Card = (props) => (
   <div className="card">
-    <div className="card-body">
-    // <img className="card-img"/> 
-    <p> Insert Image here </p>
+  <div className="img-container">
+    <img alt={props.name} src={props.image} clicked = {props.clicked}/>
     </div>
   </div>
 );
 
 export default Card;
 
-
-//w-25 -3

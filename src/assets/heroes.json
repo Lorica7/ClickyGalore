@@ -1,0 +1,88 @@
+[
+
+    {
+        "id": 1,
+        "name": "Myrrh",
+        "image": "assets/Myrrh.png",
+        "clicked": false
+    },
+    
+    {
+        "id": 2,
+        "name": "Lyn",
+        "image": "assets/BraveLyn.png",
+        "clicked": false
+    },
+    
+    {
+        "id": 3,
+        "name": "Celica",
+        "image": "assets/Celica.png",
+        "clicked": false
+    },
+    
+    {
+        "id": 4,
+        "name": "Ike",
+        "image": "../assets/Ike.png",
+        "clicked": false
+    },
+    
+    {
+        "id": 5,
+        "name": "Azura",
+        "image": "../assets/SpAzura.png",
+        "clicked": false
+    },
+    
+    {
+        "id": 6,
+        "name": "Quan",
+        "image": "../assets/Quan.png",
+        "clicked": false
+    },
+    
+    {
+        "id": 7,
+        "name": "Ninian",
+        "image": "../assets/Ninian.png",
+        "clicked": false
+    },
+    
+    {
+        "id": 8,
+        "name": "Linus",
+        "image": "../assets/Linus.png",
+        "clicked": false
+    },
+    
+    
+    {
+        "id": 9,
+        "name": "Robin",
+        "image": "../assets/FellRobin.png",
+        "clicked": false
+    },
+    
+    {
+        "id": 10,
+        "name": "Fae",
+        "image": "../assets/Fae.png",
+        "clicked": false
+    },
+    
+    {
+        "id": 11,
+        "name": "Hinoka",
+        "image": "./Hinoka1.png",
+        "clicked": false
+    },
+    
+    {
+        "id": 12,
+        "name": "Hector",
+        "image": "./Hector.png",
+        "clicked": false
+    }
+       
+]
