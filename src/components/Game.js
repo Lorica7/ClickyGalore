@@ -1,65 +1,175 @@
 import React from 'react';
 import Card from './Card';
-import heroes from '../assets/heroes.json'
-// import Counter from "./Counter";
-import Consumer from "../context"
+import React, { Component } from 'react';
 
-class Game extends React.Component {
 
+class Game extends Component {
+    
   changeClicked = event => {
     console.log(event)
     console.log("What???");
+    if (this.state.heroes.value = 1) {
+      alert("Game Over")
+    } else {
+      this.dispatch(action);
+    };
+  };
+  reducer = (state, action) => {
+    var arrayH = this.state.heroes;
+    switch (action.type) {
+      case 'SHUFFLE_HANDLER':
+        return {
+          ...state,
+          heroes: shuffle(arrayH),
+          score: handleIncrement()
+        }
+      default:
+    }; return state;
+  };
+
+  shuffle = (heroes) => {
+    let heroes = this.state.heroes;
+    var j, x, i;
+    for (i = heroes.length - 1; i > 0; i--) {
+      j = Math.floor(Math.random() * (i + 1));
+      x = heroes[i];
+      heroes[i] = heroes[j];
+      heroes[j] = x;
+    };
+  };
+
+  handleIncrement = () => {
+    this.setState({ count: this.state.score + 1 });
+  };
+
+  handleReset = () => {
+    this.setState({ score: 0 });
+  }
+
+  state = {
+    heroes: [
+      {
+        "id": 1,
+        "name": "Myrrh",
+        "image": "/images/Myrrh.png",
+        "clicked": "false"
+      },
+
+      {
+        "id": 2,
+        "name": "Lyn",
+        "image": "/images/BraveLyn.png",
+        "clicked": "false"
+      },
+
+      {
+        "id": 3,
+        "name": "Celica",
+        "image": "/images/Celica.png",
+        "clicked": "false"
+      },
+
+      {
+        "id": 4,
+        "name": "Ike",
+        "image": "/images/Ike.png",
+        "clicked": "false"
+      },
+
+      {
+        "id": 5,
+        "name": "Azura",
+        "image": "/images/SpAzura.png",
+        "clicked": "false"
+      },
+
+      {
+        "id": 6,
+        "name": "Quan",
+        "image": "/images/Quan.png",
+        "clicked": "false"
+      },
+
+      {
+        "id": 7,
+        "name": "Ninian",
+        "image": "/images/Ninian.png",
+        "clicked": "false"
+      },
+
+      {
+        "id": 8,
+        "name": "Linus",
+        "image": "/images/Linus.png",
+        "clicked": "false"
+      },
+
+
+      {
+        "id": 9,
+        "name": "Robin",
+        "image": "/images/FellRobin.png",
+        "clicked": "false"
+      },
+
+      {
+        "id": 10,
+        "name": "Fae",
+        "image": "/images/Fae.png",
+        "clicked": "false"
+      },
+
+      {
+        "id": 11,
+        "name": "Hinoka",
+        "image": "/images/Hinoka1.png",
+        "clicked": "false"
+      },
+
+      {
+        "id": 12,
+        "name": "Hector",
+        "image": "/images/Hector.png",
+        "clicked": "false"
+      }
+    ],
+    score: 0,
+
+    dispatch: action =>
+      this.setState(state => reducer(state, action)),
+
+
+
   };
 
   render() {
-    
-      return (
-      <Consumer>
-        { wholeObject => {
-          const { heroes } = wholeObject,
-          <div className="col-sm-4">
-            {heroes.map(heroes =>
-              <Card
-                key={Card.id}
-                image={heroes[i].image}
-                id={heroes[i].id}
-                value={heroes[i].value}
-                onClick={this.changeClicked} />
-            )}
+
+    return (
+
+      <div className="container">
+
+        <div className="col-sm-4">
+          {state.heroes.map(hero =>
+            <Card
+              key={Card.id}
+              image={state.heroes[i].image}
+              id={state.heroes[i].id}
+              value={state.heroes[i].value}
+              onClick={this.changeClicked} />
+          )}
+        </div>
+        <div className="card text-center">
+          <div className="card-header bg-primary text-white">
+            Click Counter!
+        </div>
+          <div className="card-body">
+            <p className="card-text">Click Count: {this.state.score}</p>
           </div>
-        }}
-        } </Consumer>
+        </div>
+      </div>
     )
-
-  //   return (
-  //     <div id="container">
-  //       <div className="row">
-  //         <div className="col-sm-4"> <Card image={heroes[0].image} id={heroes[0].id} value={heroes[0].value} onClick={this.changeClicked.bind(this)} /></div>
-  //         <div className="col-sm-4"><Card image={heroes[1].image} id={heroes[1].id} value={heroes[1].value} onClick={this.changeClicked} /></div>
-  //         <div className="col-sm-4"><Card image={heroes[2].image} id={heroes[2].id} value={heroes[2].value} onClick={this.changeClicked} /></div>
-  //       </div>
-
-  //       <div className="row">
-  //         <div className="col-sm-4">  <Card image={heroes[3].image} id={heroes[3].id} value={heroes[3].value} onClick={this.changeClicked} /></div>
-  //         <div className="col-sm-4" >  <Card image={heroes[4].image} id={heroes[4].id} value={heroes[4].value} onClick={this.changeClicked} /></div>
-  //         <div className="col-sm-4" > <Card image={heroes[5].image} id={heroes[5].id} value={heroes[5].value} onClick={this.changeClicked} /></div>
-  //       </div>
-
-  //       <div className="row">
-  //         <div className="col-sm-4"> <Card image={heroes[6].image} id={heroes[6].id} value={heroes[6].value} onClick={this.changeClicked} /></div>
-  //         <div className="col-sm-4" >  <Card image={heroes[7].image} id={heroes[7].id} value={heroes[7].value} onClick={this.changeClicked} /></div>
-  //         <div className="col-sm-4" > <Card image={heroes[8].image} id={heroes[8].id} value={heroes[8].value} onClick={this.changeClicked} /></div>
-  //       </div>
-
-  //       <div className="row">
-  //         <div className="col-sm-4" >  <Card image={heroes[9].image} id={heroes[9].id} value={heroes[9].value} onClick={this.changeClicked} /></div>
-  //         <div className="col-sm-4" >  <Card image={heroes[10].image} id={heroes[10].id} value={heroes[10].value} onClick={this.changeClicked} /></div>
-  //         <div className="col-sm-4">  <Card image={heroes[11].image} id={heroes[10].id} value={heroes[11].value} onClick={this.changeClicked} /></div>
-  //       </div>
-  //     </div>
-
-  //   );
-  };
+  }
 };
 export default Game;
+
 

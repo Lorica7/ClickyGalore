@@ -13,7 +13,7 @@ const reducer = (state, action) => {
         default:
     }; return state;
 }
-?
+
 //switch(action.value){
 // case heroes.state.value= 1;
 
