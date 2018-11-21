@@ -3,56 +3,56 @@
     {
         "id": 1,
         "name": "Myrrh",
-        "image": "/images/Myrrh.png",
+        "image": "images/Myrrh.png",
         "clicked": false
     },
     
     {
         "id": 2,
         "name": "Lyn",
-        "image": "/images/BraveLyn.png",
+        "image": "images/BraveLyn.png",
         "clicked": false
     },
     
     {
         "id": 3,
         "name": "Celica",
-        "image": "/images/Celica.png",
+        "image": "images/Celica.png",
         "clicked": false
     },
     
     {
         "id": 4,
         "name": "Ike",
-        "image": "/images/Ike.png",
+        "image": "images/Ike.png",
         "clicked": false
     },
     
     {
         "id": 5,
         "name": "Azura",
-        "image": "/images/SpAzura.png",
+        "image": "images/SpAzura.png",
         "clicked": false
     },
     
     {
         "id": 6,
         "name": "Quan",
-        "image": "/images/Quan.png",
+        "image": "images/Quan.png",
         "clicked": false
     },
     
     {
         "id": 7,
         "name": "Ninian",
-        "image": "/images/Ninian.png",
+        "image": "images/Ninian.png",
         "clicked": false
     },
     
     {
         "id": 8,
         "name": "Linus",
-        "image": "/images/Linus.png",
+        "image": "images/Linus.png",
         "clicked": false
     },
     
@@ -60,28 +60,28 @@
     {
         "id": 9,
         "name": "Robin",
-        "image": "/images/FellRobin.png",
+        "image": "images/FellRobin.png",
         "clicked": false
     },
     
     {
         "id": 10,
         "name": "Fae",
-        "image": "/images/Fae.png",
+        "image": "images/Fae.png",
         "clicked": false
     },
     
     {
         "id": 11,
         "name": "Hinoka",
-        "image": "/images/Hinoka1.png",
+        "image": "images/Hinoka1.png",
         "clicked": false
     },
     
     {
         "id": 12,
         "name": "Hector",
-        "image": "/images/Hector.png",
+        "image": "images/Hector.png",
         "clicked": false
     }
        

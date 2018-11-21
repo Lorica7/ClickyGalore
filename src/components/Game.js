@@ -1,146 +1,54 @@
-import React from 'react';
-import Card from './Card';
-import React, { Component } from 'react';
 
+import Card from './Card';
+import {React, Component } from 'react';
+import heroes from "./assets/heroes.json"
 
 class Game extends Component {
-    
-  changeClicked = event => {
-    console.log(event)
-    console.log("What???");
-    if (this.state.heroes.value = 1) {
-      alert("Game Over")
+
+  state = {
+    heroes: heroes,
+    score: 0,
+  };
+
+  changeClicked = id => {
+
+    if (this.state.heroes.clicked = false) {
+      this.handleIncrement(id)
+      // shuffleCards()
     } else {
-      this.dispatch(action);
-    };
-  };
-  reducer = (state, action) => {
-    var arrayH = this.state.heroes;
-    switch (action.type) {
-      case 'SHUFFLE_HANDLER':
-        return {
-          ...state,
-          heroes: shuffle(arrayH),
-          score: handleIncrement()
-        }
-      default:
-    }; return state;
+      this.handleReset()
+    }
   };
 
-  shuffle = (heroes) => {
+
+
+  // shuffleCards = (heroes) => {
+  //   let heroes = this.state.heroes;
+  //   var j, x, i;
+  //   for (i = heroes.length - 1; i > 0; i--) {
+  //     j = Math.floor(Math.random() * (i + 1));
+  //     x = heroes[i];
+  //     heroes[i] = heroes[j];
+  //     heroes[j] = x;
+  //   };
+  // };
+
+  handleIncrement = (id) => {
     let heroes = this.state.heroes;
-    var j, x, i;
-    for (i = heroes.length - 1; i > 0; i--) {
-      j = Math.floor(Math.random() * (i + 1));
-      x = heroes[i];
-      heroes[i] = heroes[j];
-      heroes[j] = x;
-    };
-  };
+    this.setState({ score: this.state.score + 1 });
+    heroes.forEach(() => {
+      if (id = heroes.id)
+        this.setState({ value: this.state.friends.clicked = true });
+    })
 
-  handleIncrement = () => {
-    this.setState({ count: this.state.score + 1 });
   };
 
   handleReset = () => {
     this.setState({ score: 0 });
-  }
-
-  state = {
-    heroes: [
-      {
-        "id": 1,
-        "name": "Myrrh",
-        "image": "/images/Myrrh.png",
-        "clicked": "false"
-      },
-
-      {
-        "id": 2,
-        "name": "Lyn",
-        "image": "/images/BraveLyn.png",
-        "clicked": "false"
-      },
-
-      {
-        "id": 3,
-        "name": "Celica",
-        "image": "/images/Celica.png",
-        "clicked": "false"
-      },
-
-      {
-        "id": 4,
-        "name": "Ike",
-        "image": "/images/Ike.png",
-        "clicked": "false"
-      },
-
-      {
-        "id": 5,
-        "name": "Azura",
-        "image": "/images/SpAzura.png",
-        "clicked": "false"
-      },
-
-      {
-        "id": 6,
-        "name": "Quan",
-        "image": "/images/Quan.png",
-        "clicked": "false"
-      },
-
-      {
-        "id": 7,
-        "name": "Ninian",
-        "image": "/images/Ninian.png",
-        "clicked": "false"
-      },
-
-      {
-        "id": 8,
-        "name": "Linus",
-        "image": "/images/Linus.png",
-        "clicked": "false"
-      },
-
-
-      {
-        "id": 9,
-        "name": "Robin",
-        "image": "/images/FellRobin.png",
-        "clicked": "false"
-      },
-
-      {
-        "id": 10,
-        "name": "Fae",
-        "image": "/images/Fae.png",
-        "clicked": "false"
-      },
-
-      {
-        "id": 11,
-        "name": "Hinoka",
-        "image": "/images/Hinoka1.png",
-        "clicked": "false"
-      },
-
-      {
-        "id": 12,
-        "name": "Hector",
-        "image": "/images/Hector.png",
-        "clicked": "false"
-      }
-    ],
-    score: 0,
-
-    dispatch: action =>
-      this.setState(state => reducer(state, action)),
-
-
-
+    alert("You've already clicked that one. Try Again")
+    // shuffleCards()
   };
+
 
   render() {
 
@@ -149,13 +57,15 @@ class Game extends Component {
       <div className="container">
 
         <div className="col-sm-4">
-          {state.heroes.map(hero =>
+          {this.state.heroes.map( hero => (
             <Card
-              key={Card.id}
-              image={state.heroes[i].image}
-              id={state.heroes[i].id}
-              value={state.heroes[i].value}
-              onClick={this.changeClicked} />
+              key={hero.id}
+              image={hero.image}
+              id={hero.id}
+              clicked={hero.clicked}
+              onClick={this.changeClicked}
+            />
+          )
           )}
         </div>
         <div className="card text-center">
@@ -170,6 +80,7 @@ class Game extends Component {
     )
   }
 };
+
 export default Game;
 
 

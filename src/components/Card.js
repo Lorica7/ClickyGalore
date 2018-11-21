@@ -2,13 +2,13 @@ import React from "react";
 import "./Card.css"
 
 
-const Card = (props) => (
-  <div className="card">
-  <div className="img-container">
-    <img alt={props.name} src={props.image} value={props.value} onClick={props.changeClicked}/>
+const Card = (id, name, image, value, changeClicked) => (
+  <div className="card" value={value} >
+    <div className="img-container">
+      <img alt={name} src={image} onClick={() => changeClicked(id)} />
     </div>
   </div>
 );
-  
+
 export default Card;
 
