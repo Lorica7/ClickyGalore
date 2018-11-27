@@ -1,0 +1,7 @@
+.containerStyle {
+  display: flex;
+  min-height: 80%;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+}

@@ -1,7 +1,9 @@
 
 import Card from './Card';
 import React, { Component } from 'react';
-import heroes from "../assets/heroes.json"
+import heroes from "../assets/heroes.json";
+import "./Card.css";
+import "./Container.css";
 
 class Game extends Component {
   constructor(props) {
@@ -39,15 +41,15 @@ class Game extends Component {
 
 
   shuffleCards = (heroes) => {
-      var j, x, i;
-      for (i = heroes.length - 1; i > 0; i--) {
-        j = Math.floor(Math.random() * (i + 1));
-        x = heroes[i];
-        heroes[i] = heroes[j];
-        heroes[j] = x;
-        this.setState({heroes: heroes})
-      };
-     
+    var j, x, i;
+    for (i = heroes.length - 1; i > 0; i--) {
+      j = Math.floor(Math.random() * (i + 1));
+      x = heroes[i];
+      heroes[i] = heroes[j];
+      heroes[j] = x;
+      this.setState({ heroes: heroes })
+    };
+
   }
 
   scoreUp = () => {
@@ -70,8 +72,8 @@ class Game extends Component {
 
   handleReset = () => {
     let heroes = this.state.heroes;
-    this.setState({ score: 0 });
-    this.setState(heroes.clicked = false)
+    this.setState({ score: 0, heroes: { clicked: false } });
+
     alert("You've already clicked that one. Try Again")
     this.shuffleCards(heroes)
   }
@@ -82,18 +84,17 @@ class Game extends Component {
     return (
 
       <div className="container">
-
-        <div className="col-sm-4">
-          {this.state.heroes.map(hero => (
-            <Card
-              key={hero.id}
-              image={hero.image}
-              id={hero.id}
-              clicked={hero.clicked}
-              changeClicked={this.changeClicked.bind(this)}
-            />
-          )
-          )}
+        <div className="containerStyle">
+              {this.state.heroes.map(hero => (
+                <Card
+                  key={hero.id}
+                  image={hero.image}
+                  id={hero.id}
+                  clicked={hero.clicked}
+                  changeClicked={this.changeClicked.bind(this)}
+                />
+              )
+              )}
         </div>
         <div className="card text-center">
           <div className="card-header bg-primary text-white">
