@@ -18,19 +18,17 @@ class Game extends Component {
 
   changeClicked = id => {
     let hero = this.state.heroes[id - 1];
-
+    let heroes = this.state.heroes;
     console.log(hero)
     if (hero.clicked === false) {
       this.scoreUp()
       this.handleIncrement(id)
         .then((heroesCopy) => {
           this.setState({ heroes: heroesCopy })
+          console.log(heroes)
         })
         .then(() => {
-          return this.shuffleCards()
-        })
-        .then(() => {
-          console.log("shuffled")
+          this.shuffleCards(heroes)
         })
     } else if (hero.clicked === true) {
       this.handleReset()
@@ -38,17 +36,17 @@ class Game extends Component {
   }
 
 
-  shuffleCards = () => {
-    return new Promise(function (resolve, reject) {
+
+  shuffleCards = (heroes) => {
       var j, x, i;
       for (i = heroes.length - 1; i > 0; i--) {
         j = Math.floor(Math.random() * (i + 1));
         x = heroes[i];
         heroes[i] = heroes[j];
         heroes[j] = x;
-        resolve(heroes)
+        this.setState({heroes: heroes})
       };
-    });
+     
   }
 
   scoreUp = () => {
