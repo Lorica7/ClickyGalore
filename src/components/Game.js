@@ -18,17 +18,18 @@ class Game extends Component {
 
   changeClicked = id => {
     let hero = this.state.heroes[id - 1];
-    let heroes = this.state.heroes;
+    // let heroes = this.state.heroes;
     console.log(hero)
     if (hero.clicked === false) {
       this.scoreUp()
       this.handleIncrement(id)
         .then((heroesCopy) => {
           this.setState({ heroes: heroesCopy })
-          console.log(heroes)
+          console.log(this.state.heroes)
         })
         .then(() => {
-          this.shuffleCards(heroes)
+          console.log(this.state.heroes)
+          this.shuffleCards(this.state.heroes)
         })
     } else if (hero.clicked === true) {
       this.handleReset()
@@ -59,8 +60,8 @@ class Game extends Component {
     return new Promise(function (resolve, reject) {
       for (let i = 0; i < heroes.length; i++) {
         if (id === heroes[i].id) {
-          heroesCopy[id - 1].clicked = true
           console.log("Matching ID!")
+          heroesCopy[id - 1].clicked = true
         } else console.log("no match")
       }
       resolve(heroesCopy)
