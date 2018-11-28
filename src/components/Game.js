@@ -14,41 +14,48 @@ class Game extends Component {
     };
 
     this.setState = this.setState.bind(this);
+   
   }
 
   changeClicked = id => {
+    return new Promise ((resolve, reject) => {
     let hero = this.state.heroes[id - 1];
     console.log(hero)
     if (hero.clicked === false) {
-      this.scoreUp()
       this.handleIncrement(id)
-        .then((heroesCopy) => {
-          this.shuffleCards(heroesCopy)
-          console.log(heroesCopy)
-        })
-        .then((heroesCopy) => {
-          this.setState({
-            heroes: heroesCopy,
-            score: this.state.score + 1
-          })
-          console.log(this.state)
-        })
+      
+      // console.log(heroes)
+        // .then((heroes) => {
+          this.shuffleCards(heroes)
+        // })
     } else if (hero.clicked === true) {
       this.handleReset()
-    };
+    };  
+    resolve (console.log(heroes), 
+    this.setState({
+      heroes: heroes,
+      score: this.state.score + 1
+    }))
+  })
+
   }
+   
+    
 
+  
+  
+  
 
-
-shuffleCards = (heroesCopy) => {
+shuffleCards = (heroes) => {
   return new Promise(function (resolve, reject) {
     var j, x, i;
-    for (i = heroesCopy.length - 1; i > 0; i--) {
+    for (i = heroes.length - 1; i > 0; i--) {
       j = Math.floor(Math.random() * (i + 1));
       x = heroes[i];
       heroes[i] = heroes[j];
       heroes[j] = x;
-    } resolve(console.log("shuffled", heroesCopy))
+      // x = heroes;
+    } resolve(console.log(heroes))
   })
 }
 
@@ -60,9 +67,10 @@ handleIncrement = (id) => {
       if (id === heroes[i].id) {
         console.log("Matching ID!")
         heroesCopy[id - 1].clicked = true
-      } else console.log("no match")
+      } 
+      heroesCopy = heroes
     }
-    resolve(heroesCopy)
+    resolve(console.log(heroes),heroes)
   })
 }
 
