@@ -1,4 +1,5 @@
 
+
 import Card from './Card';
 import React, { Component } from 'react';
 import heroes from "../assets/heroes.json";
@@ -9,117 +10,99 @@ class Game extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      heroes,
+      heroes: heroes,
       score: 0,
     };
 
     this.setState = this.setState.bind(this);
-   
   }
 
-  changeClicked = key => {
-    console.log(key)
-    
-   for (let i = 0; i < this.state.heroes.length; i ++){
-    if (key === this.state.heroes[i].key) {
-     console.log(key)
-     var hero = this.state.heroes[i]
-    } 
-   }
+  componentDidUpdate() {
+    console.log("Component Did Update -----", this.state)
+  }
+
+  changeClicked = id => {
+    let hero = this.state.heroes[id - 1];
     console.log(hero)
     if (hero.clicked === false) {
-      this.handleIncrement(key)
-      this.shuffleCards(heroesCopy)
+      this.handleIncrement(id)
+      this.shuffleCards(newArray)
       this.setState({
-        heroes: heroesCopy,
+        heroes: shuffArray,
         score: this.state.score + 1
       })
-    
+      
     } else if (hero.clicked === true) {
       this.handleReset()
-    };  
-    
+    };
+
   }
-   
-shuffleCards = (array) => {
-  
+
+  shuffleCards = (shuffArray) => {
     var j, x, i;
-    for (i = array.length - 1; i > 0; i--) {
+    for (i = shuffArray.length - 1; i > 0; i--) {
       j = Math.floor(Math.random() * (i + 1));
-      x = array[i];
-      array[i] = array[j];
-      array[j] = x;
-      // x = heroes;
-    } return arrayShuff
-  
-}
-
-handleIncrement = (key) => {
-  let heroes = this.state.heroes;
-  let heroesCopy = JSON.parse(JSON.stringify(heroes))
-  console.log(heroesCopy)
-  
-    for (let i = 0; i < heroesCopy.length; i++) {
-      if (key === heroesCopy[i].key) {
-        console.log("Matching name")
-        heroesCopy[i].clicked = true
-
-        //return HeroesCopy.....use the HeroesCopy variable as much as possible
-
-        // take out all promises
-
-        // maybe uses ComponentDidMount
-
-        // the setState in the handleReset is not working
-
-      } 
-      console.log(heroesCopy)
+      x = shuffArray[i];
+      shuffArray[i] = shuffArray[j];
+      shuffArray[j] = x;
     }
-    return heroesCopy;
-  
-}
+    console.log(shuffArray)
+  }
 
-handleReset = () => {
-  let heroes = this.state.heroes;
-  this.setState({ score: 0, heroes: { clicked: false } });  
-  console.log(this.state)
-  alert("You've already clicked that one. Try Again")
-  this.shuffleCards(heroes)
-}
+  handleIncrement = (id) => {
+    let heroes = this.state.heroes;
+    console.log(id)
+    const newArray = heroes.map(newHero => {
+      if (id === newHero.id) {
+        console.log(newHero)
+        console.log("Matching ID!")
+        newHero.clicked = true;
+      }
+      return newHero;
+    })
+    console.log(newArray);
+    // shuffleCards(newArray)
+  }
+
+  handleReset = () => {
+    let heroes = this.state.heroes;
+    this.setState({ score: 0, heroes: { clicked: false } });
+
+    alert("You've already clicked that one. Try Again")
+    this.shuffleCards(heroes)
+  }
 
 
-render() {
+  render() {
 
-  return (
+    return (
 
-    <div className="container">
-      <div className="containerStyle">
-        {this.state.heroes.map(hero => (
-          <Card
-            key={hero.id}
-            image={hero.image}
-            id={hero.id}
-            name ={hero.name}
-            clicked={hero.clicked}
-            changeClicked={this.changeClicked.bind(this)}
-          />
-        )
-        )}
-      </div>
-      <div className="card text-center">
-        <div className="card-header bg-primary text-white">
-          Click Counter!
+      <div className="container">
+        <div className="containerStyle">
+          {this.state.heroes.map(hero => (
+            <Card
+              key={hero.id}
+              image={hero.image}
+              id={hero.id}
+              clicked={hero.clicked}
+              changeClicked={this.changeClicked.bind(this)}
+            />
+          )
+          )}
         </div>
-        <div className="card-body">
-          <p className="card-text">Click Count: {this.state.score}</p>
+        <div className="card text-center">
+          <div className="card-header bg-primary text-white">
+            Click Counter!
+        </div>
+          <div className="card-body">
+            <p className="card-text">Click Count: {this.state.score}</p>
+          </div>
         </div>
       </div>
-    </div>
-  )
-}
+    )
+  }
 };
 
 
 export default Game;
-
 
