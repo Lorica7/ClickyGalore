@@ -64,11 +64,14 @@ class Game extends Component {
   }
 
   handleReset = () => {
-    let heroes = this.state.heroes;
-    this.setState({ score: 0, heroes: { clicked: false } });
-    console.log(this.state)
     alert("You've already clicked that one. Try Again")
-    this.shuffleCards(heroes)
+    let heroes = this.shuffleCards(this.state.heroes)
+    const resetHeroes = heroes.map( hero => {
+      hero.clicked = false;
+      return hero;
+    })
+    this.setState({ score: 0, heroes: resetHeroes});
+    console.log(this.state) 
   }
 
 
@@ -89,12 +92,13 @@ class Game extends Component {
           )
           )}
         </div>
-        <div className="card text-center">
-          <div className="card-header bg-primary text-white">
-            Click Counter!
+        <div className="card text-center" style={{marginLeft: '40%',
+    marginRight: '40%'}}>
+          <div className="card-header" style={{backgroundColor: '#326cac', color: '#cccccc'}}>
+            Click Counter
         </div>
           <div className="card-body">
-            <p className="card-text">Click Count: {this.state.score}</p>
+            <p className="card-text" style={{color: 'black'}}>Click Count: {this.state.score}</p>
           </div>
         </div>
       </div>
