@@ -26,16 +26,10 @@ class Game extends Component {
     console.log(hero)
     if (hero.clicked === false) {
       this.handleIncrement(id)
-      this.shuffleCards(newArray)
-      this.setState({
-        heroes: shuffArray,
-        score: this.state.score + 1
-      })
-      
+     
     } else if (hero.clicked === true) {
       this.handleReset()
     };
-
   }
 
   shuffleCards = (shuffArray) => {
@@ -47,6 +41,10 @@ class Game extends Component {
       shuffArray[j] = x;
     }
     console.log(shuffArray)
+    this.setState({
+      heroes: shuffArray,
+      score: this.state.score + 1
+    })
   }
 
   handleIncrement = (id) => {
@@ -61,7 +59,7 @@ class Game extends Component {
       return newHero;
     })
     console.log(newArray);
-    // shuffleCards(newArray)
+    this.shuffleCards(newArray)
   }
 
   handleReset = () => {
