@@ -1,5 +1,3 @@
-
-
 import Card from './Card';
 import React, { Component } from 'react';
 import heroes from "../assets/heroes.json";
@@ -22,7 +20,10 @@ class Game extends Component {
   }
 
   changeClicked = id => {
-    let hero = this.state.heroes[id - 1];
+    let heroes = this.state.heroes
+    const hero =heroes.find((heroes) => {
+      return heroes.id === id
+    })
     console.log(hero)
     if (hero.clicked === false) {
       this.handleIncrement(id)
@@ -40,16 +41,16 @@ class Game extends Component {
       shuffArray[i] = shuffArray[j];
       shuffArray[j] = x;
     }
-    console.log(shuffArray)
+    
     this.setState({
       heroes: shuffArray,
       score: this.state.score + 1
     })
+    console.log(this.state)
   }
 
   handleIncrement = (id) => {
     let heroes = this.state.heroes;
-    console.log(id)
     const newArray = heroes.map(newHero => {
       if (id === newHero.id) {
         console.log(newHero)
@@ -65,7 +66,7 @@ class Game extends Component {
   handleReset = () => {
     let heroes = this.state.heroes;
     this.setState({ score: 0, heroes: { clicked: false } });
-
+    console.log(this.state)
     alert("You've already clicked that one. Try Again")
     this.shuffleCards(heroes)
   }
@@ -103,4 +104,3 @@ class Game extends Component {
 
 
 export default Game;
-
