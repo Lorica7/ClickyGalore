@@ -65,7 +65,8 @@ class Game extends Component {
 
   handleReset = () => {
     alert("You've already clicked that one. Try Again")
-    let heroes = this.shuffleCards(this.state.heroes)
+    let heroes = this.state.heroes;
+    this.shuffleCards(heroes)
     const resetHeroes = heroes.map( hero => {
       hero.clicked = false;
       return hero;
