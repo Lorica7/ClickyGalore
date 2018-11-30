@@ -9,7 +9,7 @@ class Game extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      heroes: heroes,
+      heroes,
       score: 0,
     };
 
@@ -17,67 +17,72 @@ class Game extends Component {
    
   }
 
-  changeClicked = id => {
-    return new Promise ((resolve, reject) => {
-    let hero = this.state.heroes[id - 1];
+  changeClicked = key => {
+    console.log(key)
+    
+   for (let i = 0; i < this.state.heroes.length; i ++){
+    if (key === this.state.heroes[i].key) {
+     console.log(key)
+     var hero = this.state.heroes[i]
+    } 
+   }
     console.log(hero)
     if (hero.clicked === false) {
-      this.handleIncrement(id)
-      
-      // console.log(heroes)
-        // .then((heroes) => {
-          this.shuffleCards(heroes)
-        // })
+      this.handleIncrement(key)
+      this.shuffleCards(heroesCopy)
+      this.setState({
+        heroes: heroesCopy,
+        score: this.state.score + 1
+      })
+    
     } else if (hero.clicked === true) {
       this.handleReset()
     };  
-    resolve (console.log(heroes), 
-    this.setState({
-      heroes: heroes,
-      score: this.state.score + 1
-    }))
-  })
-
+    
   }
    
-    
-
+shuffleCards = (array) => {
   
-  
-  
-
-shuffleCards = (heroes) => {
-  return new Promise(function (resolve, reject) {
     var j, x, i;
-    for (i = heroes.length - 1; i > 0; i--) {
+    for (i = array.length - 1; i > 0; i--) {
       j = Math.floor(Math.random() * (i + 1));
-      x = heroes[i];
-      heroes[i] = heroes[j];
-      heroes[j] = x;
+      x = array[i];
+      array[i] = array[j];
+      array[j] = x;
       // x = heroes;
-    } resolve(console.log(heroes))
-  })
+    } return arrayShuff
+  
 }
 
-handleIncrement = (id) => {
+handleIncrement = (key) => {
   let heroes = this.state.heroes;
   let heroesCopy = JSON.parse(JSON.stringify(heroes))
-  return new Promise(function (resolve, reject) {
-    for (let i = 0; i < heroes.length; i++) {
-      if (id === heroes[i].id) {
-        console.log("Matching ID!")
-        heroesCopy[id - 1].clicked = true
+  console.log(heroesCopy)
+  
+    for (let i = 0; i < heroesCopy.length; i++) {
+      if (key === heroesCopy[i].key) {
+        console.log("Matching name")
+        heroesCopy[i].clicked = true
+
+        //return HeroesCopy.....use the HeroesCopy variable as much as possible
+
+        // take out all promises
+
+        // maybe uses ComponentDidMount
+
+        // the setState in the handleReset is not working
+
       } 
-      heroesCopy = heroes
+      console.log(heroesCopy)
     }
-    resolve(console.log(heroes),heroes)
-  })
+    return heroesCopy;
+  
 }
 
 handleReset = () => {
   let heroes = this.state.heroes;
-  this.setState({ score: 0, heroes: { clicked: false } });
-
+  this.setState({ score: 0, heroes: { clicked: false } });  
+  console.log(this.state)
   alert("You've already clicked that one. Try Again")
   this.shuffleCards(heroes)
 }
@@ -94,6 +99,7 @@ render() {
             key={hero.id}
             image={hero.image}
             id={hero.id}
+            name ={hero.name}
             clicked={hero.clicked}
             changeClicked={this.changeClicked.bind(this)}
           />
