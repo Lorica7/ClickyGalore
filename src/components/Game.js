@@ -19,6 +19,15 @@ class Game extends Component {
     console.log("Component Did Update -----", this.state)
   }
 
+  checkForWin = () => {
+    if (this.state.score === 11) {
+      alert("Congratulations, you've won the game!")
+    } else {
+      console.log("keep on going!")
+    }
+    
+  }
+
   changeClicked = id => {
     let heroes = this.state.heroes
     const hero =heroes.find((heroes) => {
@@ -26,8 +35,9 @@ class Game extends Component {
     })
     console.log(hero)
     if (hero.clicked === false) {
+    
       this.handleIncrement(id)
-     
+      this.checkForWin();
     } else if (hero.clicked === true) {
       this.handleReset()
     };
@@ -74,6 +84,8 @@ class Game extends Component {
     this.setState({ score: 0, heroes: resetHeroes});
     console.log(this.state) 
   }
+
+
 
 
   render() {
